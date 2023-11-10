@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/sistema-churrasco/static/css/main.b6ddea50.css",
-    "main.js": "/sistema-churrasco/static/js/main.9a7d8ee2.js",
+    "main.css": "/sistema-churrasco/static/css/main.923f1966.css",
+    "main.js": "/sistema-churrasco/static/js/main.a15e2e82.js",
     "index.html": "/sistema-churrasco/index.html",
-    "main.b6ddea50.css.map": "/sistema-churrasco/static/css/main.b6ddea50.css.map",
-    "main.9a7d8ee2.js.map": "/sistema-churrasco/static/js/main.9a7d8ee2.js.map"
+    "main.923f1966.css.map": "/sistema-churrasco/static/css/main.923f1966.css.map",
+    "main.a15e2e82.js.map": "/sistema-churrasco/static/js/main.a15e2e82.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6ddea50.css",
-    "static/js/main.9a7d8ee2.js"
+    "static/css/main.923f1966.css",
+    "static/js/main.a15e2e82.js"
   ]
 }
