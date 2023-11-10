@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import QRCode from 'qrcode.react';
-import '../styles/OrderForm.css';
 
 
 const OrderForm = () => {

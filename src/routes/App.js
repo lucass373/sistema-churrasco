@@ -51,7 +51,7 @@ const App = () => {
 
   const handleClick = (nome) => {
     // Navegar para a rota desejada e passar as informações
-    navigate('/pedido', { state:{ 'nome': nome }});
+    navigate('/sistema-churrasco/pedido', { state:{ 'nome': nome }});
   };
 
   return (
