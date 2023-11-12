@@ -1,6 +1,9 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import espetinhoCarne from '../images/espetinho-carne.jpg'
+import espetinhoFrango from '../images/espetinho-frango.jpg'
+import espetinhoMisto from '../images/espetinho-misto.jpg'
 import '../styles/App.css'
 const App = () => {
 
@@ -8,6 +11,44 @@ const App = () => {
   const [pedido, setPedido] = useState('');
   const [qrcodeData, setQRCodeData] = useState(null);
   const [scannedData, setScannedData] = useState(null);
+  const [database, setDatabase] = useState({});
+  const [cardapio, setCardapio] = useState({});
+  
+
+  useEffect(() => {
+    // Limpa o localStorage para iniciar com banco de dados zerado
+    localStorage.clear();
+
+    // Adiciona o cardápio ao banco de dados local
+    const cardapio = {
+      1: {
+        id: 1,
+        nome: 'Carne',
+        preco: 5.0,
+        img: espetinhoCarne,
+        tipo: 'churrasco'
+      },
+      2: {
+        id: 2,
+        nome: 'Frango',
+        preco: 5.0,
+        img: espetinhoFrango,
+        tipo: 'churrasco'
+      },
+      3:{
+        id: 3,
+        nome: 'Misto',
+        preco: 6.0,
+        img: espetinhoMisto,
+        tipo: 'churrasco'
+      }
+  }
+    setCardapio(cardapio);
+    localStorage.setItem('cardapio', JSON.stringify(cardapio));
+
+    // Inicializa o banco de dados de pedidos
+    setDatabase({});
+  }, []);
 
   const pedidoData = {
     id: 123,
@@ -51,7 +92,7 @@ const App = () => {
 
   const handleClick = (nome) => {
     // Navegar para a rota desejada e passar as informações
-    navigate('/sistema-churrasco/pedido', { state:{ 'nome': nome }});
+    navigate('/pedido', { state:{ 'nome': nome }});
   };
 
   return (

@@ -1,12 +1,11 @@
 .divPedido{
     max-width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     /*align-items: center;*/
 }
 .divLinha{
     border: 1px solid black;
-    width: 99.9%;
 }
 #sidenav{
  position: relative; 
@@ -71,11 +70,20 @@
 }
 .divItems{
   display: flex;
+  flex-wrap: wrap;
 }
-@media (max-width: 600px) {
-  .divItems{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+
+.total-info{
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color:#db3d44;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
 }

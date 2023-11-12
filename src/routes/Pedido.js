@@ -1,31 +1,30 @@
 // Pedido.js
-import React, { useState } from 'react'
-import { useLocation, Navigate } from 'react-router-dom'
-import '../styles/Pedido.css'
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import { GiBarbecue, GiFrenchFries, GiSodaCan } from "react-icons/gi";
-import {BiSolidBowlRice} from "react-icons/bi";
-// Be sure to include styles at some point, probably during your bootstraping
+import React, { useState } from 'react';
+import { useLocation, Navigate } from 'react-router-dom';
+import '../styles/Pedido.css';
+import SideNav, { Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import { GiBarbecue, GiFrenchFries, GiSodaCan } from 'react-icons/gi';
+import {BsCartCheckFill } from 'react-icons/bs';
+import { BiSolidBowlRice } from 'react-icons/bi';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-
-import Churrasco from '../components/churrasco'
+import Churrasco from '../components/churrasco.js';
+import Confirma from '../components/confirma.js';
 
 const Pedido = () => {
-  const location = useLocation()
-  const pedidoData = location.state
-  const [tipo,setTipo] = useState('churrs') 
-
+  const location = useLocation();
+  const pedidoData = location.state;
+  const [tipo, setTipo] = useState('churrs');
+  const [totalPedido, setTotalPedido] = useState(0);
+  const [confirma, setConfirma] = useState(false);
+  const [pedido, setPedido]  = useState([])
 
   if (!pedidoData) {
     // Redirecionar de volta se não houver dados no estado da localização
-    return <Navigate to="/" />
+    return <Navigate to="/sistema-churrasco" />;
   }
 
- 
-
-
   return (
-    <div class="divPedido">
+    <div className="divPedido">
       <SideNav
         id="sidenav"
         onSelect={(selected) => {
@@ -61,18 +60,32 @@ const Pedido = () => {
         </SideNav.Nav>
       </SideNav>
 
-
-
-      <div class="content1">
-        <div class="divCabecalho">
+      <div className="content1">
+        <div className="divCabecalho">
           <h1>Olá {pedidoData.nome}! Escolha seu pedido</h1>
         </div>
-        <div class="divLinha" />
-        {tipo=='churrs' ? <Churrasco /> : tipo =='Acmp' ? <p>Acompanhamento</p> : tipo == 'batata' ? <p>batata</p>: tipo == 'bebida' ? <p>bebida</p> : <></>}
-        
-      </div>
-    </div>
-  )
-}
+        <div className="divLinha" />
 
-export default Pedido
+        {tipo === 'churrs' ? (
+          <Churrasco userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido}/>
+        ) : tipo === 'Acmp' ? (
+          <p>Acompanhamento</p>
+        ) : tipo === 'batata' ? (
+          <p>batata</p>
+        ) : tipo === 'bebida' ? (
+          <p>bebida</p>
+        ) : (
+          <></>
+        )}
+      </div>
+      <div onClick={()=>{setConfirma(true)}} className="total-info">
+        <p>Total Pedido: R$ {totalPedido.toFixed(2)}</p><BsCartCheckFill size="25px" color='white' style={{marginRight: `20px`}}/>
+      </div>
+      { confirma == true ?
+      <Confirma pedidoInf={pedido} onExit={()=>setConfirma(false)} total={totalPedido}/> : <></>
+}
+    </div>
+  );
+};
+
+export default Pedido;

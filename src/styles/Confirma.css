@@ -1,0 +1,44 @@
+.divConfirma{
+    position:fixed;
+    z-index: 10000;
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+.divExit{
+    display: flex;
+   
+    align-items: center;
+}
+.cabecalho{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.divCabecaCont{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemConf{
+    padding: 10px;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    margin: 10px
+}
+.itemConf img{
+    width: 60px;
+    height: 50px;
+}
+.itemsConf{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }

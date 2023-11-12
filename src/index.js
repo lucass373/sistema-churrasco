@@ -11,10 +11,10 @@ const history = createBrowserHistory();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <Router history={history}>
+  <Router history={history} basename="/sistema-churrasco">
     <Routes>
-      <Route path="/sistema-churrasco" element={<App />} />
-      <Route path="/sistema-churrasco/pedido" element={<Pedido />} />
+      <Route path="/" element={<App />} />
+      <Route path="/pedido" element={<Pedido />} />
     </Routes>
   </Router>
 );
