@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { RxExit } from 'react-icons/rx'
 import '../styles/Confirma.css'
 import QRCode from 'qrcode.react'
+import screenfull from 'screenfull';
 
 const Confirma = ({ onExit, total, onChange }) => {
   const cardapio = JSON.parse(localStorage.getItem('cardapio'))
@@ -56,6 +57,7 @@ const Confirma = ({ onExit, total, onChange }) => {
         </div>
       </div>
       <div className="divEscolha">
+      {showQr === true ? (<></>) :       <div>
         <div style={{ textAlign: 'center' }}>
           <h4>Itens Escolhidos:</h4>
         </div>
@@ -79,17 +81,29 @@ const Confirma = ({ onExit, total, onChange }) => {
             </div>
           ))}
         </div>
+        </div> }
+
+
         <div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>
           <p>Total do pedido: R$ {total.toFixed(2)}</p>
         </div>
-        <div className="divQr">
-          <button
+        <div className="divQr" style={{display: 'flex', flexDirection: 'column'}}>
+          {showQr == true ?  <button
             className="qrButton"
-            onClick={() => onClickQr()}
+            onClick={() => setShowQr(false)}
             style={{ width: '80%', height: '40px' }}
           >
+            Visualizar pedido
+          </button> :  <button
+            className="qrButton"
+            onClick={() => onClickQr()}
+            style={{ width: '80%', height: '40px',marginBottom: '70px'}}
+          >
             Gerar QrCode
-          </button>
+          </button> }
+
+         
+         
         </div>
         {showQr === true ? (
           <div
