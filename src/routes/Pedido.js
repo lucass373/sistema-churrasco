@@ -33,7 +33,7 @@ const Pedido = () => {
   }
 
   return (
-    <div className="divPedido">
+    <div className="divPedido" style={confirma == true ? {position: 'fixed'} : null}>
       <SideNav
         id="sidenav"
         onSelect={(selected) => {
