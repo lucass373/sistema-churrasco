@@ -121,9 +121,6 @@ const Acompanhamento = ({ userName, onTotalChange, info}) => {
       <div className="total-info">
         <p>Total Pedido: R$ {total.toFixed(2)}</p>
       </div>
-      <div className="user-info">
-        <p>Usuário: {userName}</p>
-      </div>
     </div>
   );
 };

@@ -40,7 +40,7 @@ const Churrasco = ({ userName, onTotalChange, info}) => {
 
     }
   };
-
+  
   const updatePedidos = (id, novaQuantidade) => {
     const novoPedidos = [...pedidos];
     const index = novoPedidos.findIndex((pedido) => pedido.id === id);
@@ -65,6 +65,8 @@ const Churrasco = ({ userName, onTotalChange, info}) => {
     const novaQuantidade = Math.max((pedidos.find((pedido) => pedido.id === id)?.quantidade || 0) - 1, 0);
     updatePedidos(id, novaQuantidade);
   };
+
+
 
   return (
     <div className="divItems">
@@ -121,9 +123,7 @@ const Churrasco = ({ userName, onTotalChange, info}) => {
       <div className="total-info">
         <p>Total Pedido: R$ {total.toFixed(2)}</p>
       </div>
-      <div className="user-info">
-        <p>Usuário: {userName}</p>
-      </div>
+
     </div>
   );
 };

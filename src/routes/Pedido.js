@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import '../styles/Pedido.css';
-import SideNav, { Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { GiBarbecue, GiFrenchFries, GiSodaCan } from 'react-icons/gi';
 import {BsCartCheckFill } from 'react-icons/bs';
 import { BiSolidBowlRice } from 'react-icons/bi';
@@ -17,12 +17,19 @@ const Pedido = () => {
   const [tipo, setTipo] = useState('churrs');
   const [totalPedido, setTotalPedido] = useState(0);
   const [confirma, setConfirma] = useState(false);
-  const [pedido, setPedido]  = useState([])
   const [confPedido, setConfPedido]  = useState([])
 
   if (!pedidoData) {
     // Redirecionar de volta se não houver dados no estado da localização
     return <Navigate to="/sistema-churrasco" />;
+  }
+
+  const handleConf=()=>{
+    if(totalPedido === 0){
+      alert('Seu pedido está vazio!')
+    }else{
+      setConfirma(true)
+    }
   }
 
   return (
@@ -69,9 +76,9 @@ const Pedido = () => {
         <div className="divLinha" />
 
         {tipo === 'churrs' ? (
-          <Churrasco userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido} confPedido={confPedido}/>
+          <Churrasco userName={pedidoData.nome}  onTotalChange={setTotalPedido} confPedido={confPedido}/>
         ) : tipo === 'Acmp' ? (
-          <Acompanhamento userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido} confPedido={confPedido}/>
+          <Acompanhamento userName={pedidoData.nome}  onTotalChange={setTotalPedido} confPedido={confPedido}/>
         ) : tipo === 'batata' ? (
           <p>batata</p>
         ) : tipo === 'bebida' ? (
@@ -80,10 +87,10 @@ const Pedido = () => {
           <></>
         )}
       </div>
-      <div onClick={()=>{setConfirma(true)}} className="total-info">
+      <div onClick={()=>{handleConf()}} className="total-info">
         <p>Total Pedido: R$ {totalPedido.toFixed(2)}</p><BsCartCheckFill size="25px" color='white' style={{marginRight: `20px`}}/>
       </div>
-      { confirma == true ?
+      { confirma === true ?
       <Confirma onChange={setConfPedido} onExit={()=>setConfirma(false)} total={totalPedido}/> : <></>
 }
     </div>
