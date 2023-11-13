@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/sistema-churrasco/static/css/main.3451c5d7.css",
-    "main.js": "/sistema-churrasco/static/js/main.5cd13c46.js",
+    "main.css": "/sistema-churrasco/static/css/main.56b4d919.css",
+    "main.js": "/sistema-churrasco/static/js/main.f0cf8e4d.js",
     "static/media/espetinho-frango.jpg": "/sistema-churrasco/static/media/espetinho-frango.e6d3120c2692fb3fdcd4.jpg",
+    "static/media/arroz.jpg": "/sistema-churrasco/static/media/arroz.0006ceb2ee40b135d8e7.jpg",
     "static/media/espetinho-carne.jpg": "/sistema-churrasco/static/media/espetinho-carne.f1d82e1192ee28083b5f.jpg",
     "static/media/espetinho-misto.jpg": "/sistema-churrasco/static/media/espetinho-misto.9b827b17c9c915c5f99a.jpg",
     "index.html": "/sistema-churrasco/index.html",
-    "main.3451c5d7.css.map": "/sistema-churrasco/static/css/main.3451c5d7.css.map",
-    "main.5cd13c46.js.map": "/sistema-churrasco/static/js/main.5cd13c46.js.map"
+    "main.56b4d919.css.map": "/sistema-churrasco/static/css/main.56b4d919.css.map",
+    "main.f0cf8e4d.js.map": "/sistema-churrasco/static/js/main.f0cf8e4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.3451c5d7.css",
-    "static/js/main.5cd13c46.js"
+    "static/css/main.56b4d919.css",
+    "static/js/main.f0cf8e4d.js"
   ]
 }
