@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import espetinhoCarne from '../images/espetinho-carne.jpg'
 import espetinhoFrango from '../images/espetinho-frango.jpg'
 import espetinhoMisto from '../images/espetinho-misto.jpg'
+import arroz from '../images/arroz.jpg'
 import '../styles/App.css'
 const App = () => {
 
@@ -41,6 +42,20 @@ const App = () => {
         preco: 6.0,
         img: espetinhoMisto,
         tipo: 'churrasco'
+      },
+      4:{
+        id: 4,
+        nome: 'Arroz (Pequeno)',
+        preco: 3.0,
+        img: arroz,
+        tipo: 'acompanhamento'
+      },
+      5:{
+        id: 5,
+        nome: 'Arroz (Médio)',
+        preco: 5.0,
+        img: arroz,
+        tipo: 'acompanhamento'
       }
   }
     setCardapio(cardapio);

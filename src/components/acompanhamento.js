@@ -1,8 +1,8 @@
-// Churrasco.js
+// Acompanhamento.js
 import React, { useState, useEffect } from 'react';
 import '../styles/Pedido.css';
 
-const Churrasco = ({ userName, onTotalChange, info}) => {
+const Acompanhamento = ({ userName, onTotalChange, info}) => {
   const [cardapio, setCardapio] = useState({});
   const [pedidos, setPedidos] = useState([]);
   const [total, setTotal] = useState(0);
@@ -70,7 +70,7 @@ const Churrasco = ({ userName, onTotalChange, info}) => {
     <div className="divItems">
       {Object.values(cardapio).map((item) => {
         const quantidadeItem = pedidos.find((pedido) => pedido.id === item.id)?.quantidade || 0;
-        if (item.tipo === 'churrasco') {
+        if (item.tipo === 'acompanhamento') {
           return (
             <div className="item" key={item.id}>
               <img alt="espeto" src={item.img} />
@@ -128,4 +128,4 @@ const Churrasco = ({ userName, onTotalChange, info}) => {
   );
 };
 
-export default Churrasco;
+export default Acompanhamento;

@@ -30,7 +30,8 @@
     display: flex;
     align-items: center;
     border: 1px solid black;
-    margin: 10px
+    margin: 10px;
+    justify-content: space-between;
 }
 .itemConf img{
     width: 60px;
@@ -41,4 +42,13 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
+  }
+  .divInfo{
+    display: flex;
+  }
+  .divAdd{
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
   }

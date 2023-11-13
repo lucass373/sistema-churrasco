@@ -9,6 +9,7 @@ import { BiSolidBowlRice } from 'react-icons/bi';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import Churrasco from '../components/churrasco.js';
 import Confirma from '../components/confirma.js';
+import Acompanhamento from '../components/acompanhamento.js';
 
 const Pedido = () => {
   const location = useLocation();
@@ -17,6 +18,7 @@ const Pedido = () => {
   const [totalPedido, setTotalPedido] = useState(0);
   const [confirma, setConfirma] = useState(false);
   const [pedido, setPedido]  = useState([])
+  const [confPedido, setConfPedido]  = useState([])
 
   if (!pedidoData) {
     // Redirecionar de volta se não houver dados no estado da localização
@@ -67,9 +69,9 @@ const Pedido = () => {
         <div className="divLinha" />
 
         {tipo === 'churrs' ? (
-          <Churrasco userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido}/>
+          <Churrasco userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido} confPedido={confPedido}/>
         ) : tipo === 'Acmp' ? (
-          <p>Acompanhamento</p>
+          <Acompanhamento userName={pedidoData.nome}  onTotalChange={setTotalPedido} info={setPedido} confPedido={confPedido}/>
         ) : tipo === 'batata' ? (
           <p>batata</p>
         ) : tipo === 'bebida' ? (
@@ -82,7 +84,7 @@ const Pedido = () => {
         <p>Total Pedido: R$ {totalPedido.toFixed(2)}</p><BsCartCheckFill size="25px" color='white' style={{marginRight: `20px`}}/>
       </div>
       { confirma == true ?
-      <Confirma pedidoInf={pedido} onExit={()=>setConfirma(false)} total={totalPedido}/> : <></>
+      <Confirma onChange={setConfPedido} onExit={()=>setConfirma(false)} total={totalPedido}/> : <></>
 }
     </div>
   );
